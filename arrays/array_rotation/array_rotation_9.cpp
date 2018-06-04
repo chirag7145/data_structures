@@ -27,4 +27,15 @@ void rotate_array(int arr[],int n)
 	arr[0] = temp;
 }
 
-int hamming_max(int )
+int hamming_max(int arr[],int n)
+{
+	int cnt = 0;
+
+
+	for (int i = 0; i < n-1; i++)
+	{
+		int temp = arr[n-1];
+		if(arr[i] = arr[i - 1])
+	}
+
+}
