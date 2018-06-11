@@ -1,4 +1,4 @@
-// Find the largest 3 elements in the given array
+// Replace the current idx with the multiplication of its prevoius element and next element
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,37 +19,22 @@ void output(int arr[],int n)
 	}
 }
 
-void largest(int arr[],int n)
+void modify(int arr[],int n)
 {
-	int x = -1000000000;
-	int y = -1000000000;
-	int z = -1000000000;
-
-	for (int i = 0; i < n; i++)
+	int a,b;
+	for(int i = 0; i < n; i++)
 	{
-		if(arr[i]>x)
-		{
-			z = y;
-			y = x;
-			x = arr[i];
-		} 
-		else if(arr[i]>y)
-		{
-			z = y;
-			y = arr[i];
-		}
-		else if(arr[i]>z)
-		{
-			z = arr[i];
-		}
-		else
-		{
-			x = x;
-			y = y;
-			z = z;
-		}
+		if(i==0 || i==n-2) a = arr[i]*arr[i+1];
+		else a = arr[i]*arr[i+2];
+        
+        if(i==0) arr[i] = a;
+        else arr[i] = b;
+        
+        if(i==0) b = arr[i]*arr[i+2];
+        else b = a;
+
+		if(i==0) arr[i] = a;
 	}
-	cout<<x<<" "<<y<<" "<<z<<endl;
 }
 
 int main()
@@ -59,7 +44,8 @@ int main()
 	cin>>n;
 
 	input(arr,n);
-    largest(arr,n);
+	modify(arr,n);
+	output(arr,n);
 
-    return 0;
+	return 0;
 }
